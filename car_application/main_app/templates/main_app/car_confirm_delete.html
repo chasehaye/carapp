@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Delete {{object.make}} {{object.model}}!</h1>
+
+    <h3>Are you sure you want to remove {{object.make}} {{object.model}}?</h3>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Yes - Delete!" class="btn">
+        <a href="{% url 'car_detail' car.id %}">Cancel</a>
+    </form>
+{% endblock %}
+    
