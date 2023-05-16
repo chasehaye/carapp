@@ -2,14 +2,14 @@
 {% block content %}
 
 {% if object %}
-<h1>Edit <span class="teal-text">{{ object.make }}</span></h1>
+<h1 class='title'>Edit {{ object.make }}</h1>
 {% else %}
-<h1>Add a Car</h1>
+<h1 class='title'>Add a Car</h1>
 {% endif %}
 
 <form action="" method="POST">
 {% csrf_token %}
-    <table>
+    <table class='form-bckg'>
         {{ form.as_table }}
     </table>
     {% if object %}

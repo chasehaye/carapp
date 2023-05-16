@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>Upgrades</h1>
+<body class='car-det'>
+<h1 class='title'>Upgrades</h1>
 
 {% for upgrade in upgrade_list %}
  <a href="{% url 'upgrade_detail' upgrade.id %}">
     <div class="card">
         <div class="card-content">
-            <span class="card-title">{{ upgrade.name }}</span>
+            <h6 class="card-adj">{{ upgrade.name }}</h6>
             <p>Description: {{ upgrade.description }}</p>
             <p>Cost: {{ upgrade.cost }}</p>
         </div>
     </div>
  </a>
 {% endfor %}
-
+</body>
 {% endblock %}

@@ -1,0 +1,100 @@
+:root {
+    --g: #32373B;
+    --b: #171614;
+    --r: #F64740;
+    --m: #A3333D;
+    --w: #FFFFE8;
+}
+* {
+    color: var(--w);
+}
+.navi {
+    background-color: var(--m);
+}
+.title {
+    color: var(--r);
+    text-align: center;
+}
+body {
+    background-color: var(--b);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+  }
+.right {
+    padding-top: 0;
+    text-align: right;
+    color: var(--w);
+}
+.card {
+    background-color: var(--g);
+    border-radius: 2vh;
+}
+.card-adj {
+    color: #A3333D;
+    font-size: 2.75vh;
+    margin-bottom: 1.25vh;
+}
+p {
+    font-size: 1.3vh;
+}
+.btn {
+    background-color: var(--r);
+    margin-left: 80%;
+    border-radius: .75vh;
+    margin-bottom: 1vh;
+}
+.btn:hover {
+    background-color: var(--b);
+}
+.btn-small {
+    background-color: var(--r);
+    border-radius: .75vh;
+    margin-bottom: 2vh;
+    margin-left: 0vw;
+    margin-right: 5vw;
+}
+.btn-small:hover {
+    background-color: var(--b);
+}
+.btn-large {
+    background-color: var(--r);
+    margin-bottom: 2vh;
+    height: 45px;
+}
+.btn-large:hover {
+    background-color: var(--b);
+}
+.form-bckg {
+    background-color: var(--g);
+    margin-bottom: 2vh;
+    border-radius: 1vh;
+}
+.card-sub {
+    text-align: center;
+    color: var(--r);
+}
+h4, h5 {
+    color: var(--g);
+    text-align: center;
+}
+h3 {
+    color: var(--m);
+    text-align: center;
+}
+.serv {
+    color: var(--m);
+    text-align: center;
+}
+span {
+    font-size: 2vh;
+    color: var(--r);
+    font-weight: bold;
+}
+.service-dis {
+    background-color: var(--w);
+    border-radius: 2vw;
+}

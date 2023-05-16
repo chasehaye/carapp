@@ -1,54 +1,58 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Car's Details</h1>
+<body class='car-det'>
+<h1 class='title'>Car Details</h1>
 
 <div class='card'>
     <div class='card-content'>
-        <span class='card-title'>{{car.make}} {{car.model}}</span>
+        <span class='card-adj'>{{car.make}} {{car.model}}</span>
         <p>Year: {{car.year}}</p>
         <p>Color: {{car.color}}</p>
         <p>Description: {{car.description}}</p>
     </div>
-    <div class="card-action">
-        <a href="{% url 'car_update' car.id %}">Edit</a>
-        <a href="{% url 'car_delete' car.id %}">Delete</a> 
+    <div class="card-sub">
+        <a href="{% url 'car_update' car.id %}" class='btn-small'>Edit</a>
+        <a href="{% url 'car_delete' car.id %}" class='btn-small'>Delete</a> 
     </div>
 </div>
 
-<div class="col s6">
-    <form action="{% url 'add_service' car.id %}" method="POST">
+<h1 class='title'>Add Service Performed</h1>
+
+<div class="col s6" >
+    <form action="{% url 'add_service' car.id %}" method="POST" class='form-bckg'>
         {% csrf_token %}
         {{service_form.as_table}}
         <input type="submit" class="btn" value="Add Service!">
     </form>
-    <table class="striped">
+    <table>
       <tbody>
         {% for service in car.service_set.all %}
-        <p>Service: {{service.name}}</p>
-        <p>Description: {{service.description}}</p>
-        <p>Parts Used: {{service.parts}}</p>
-        <p>Cost: ${{service.cost}}</p>
+        <div class='service-dis'>
+        <p class="serv"><span>Service:    </span>{{service.name}}</p>
+        <p class="serv"><span>Description:    </span>{{service.description}}</p>
+        <p class="serv"><span>Parts Used:    </span>{{service.parts}}</p>
+        <p class="serv"><span>Cost:    </span>${{service.cost}}</p>
+        </div>
         {% endfor %}
       </tbody>
     </table>
   </div>
 
-
-  <div class="row">
+  <div>
     <div class="col s6">
-      <h3>{{ car.make }} {{ car.model }}</h3>
+      <h3>Upgrades on this {{ car.make }} {{ car.model }}</h3>
       {% if car.upgrade.count %}
         {% for upgrade in car.upgrade.all %}
           <div class="card">
             <div class="card-content">
               <span class="card-title">
-              <h3>1.{{ upgrade.name }}</h3>
+              <h3>{{ upgrade.name }}</h3>
               </span>
             </div>
-            <div class="card-action">
+            <div class="card-sub">
               <form action="{% url 'unassoc_upgrade' car.id upgrade.id %}" method="POST">
                 {% csrf_token %}
-                <button type="submit" class="btn">Remove</button>
+                <button type="submit" class="btn-large">Remove</button>
               </form>
             </div>
           </div>
@@ -58,9 +62,9 @@
       {% endif %}
     </div>
   </div>
+</div>
 
-
-
+  <div>
   <div class="col s6">
     <h3>Upgrades</h3>
     {% if upgrades_car_doesnt_have.count %}
@@ -71,20 +75,19 @@
               <h3>1.{{ upgrade.name }}</h3>
             </span>
           </div>
-          <div class="card-action">
+          <div class="card-sub">
             <form action="{% url 'assoc_upgrade' car.id upgrade.id %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn">Add</button>
+              <button type="submit" class="btn-large">Add</button>
             </form>
           </div>
         </div>
       {% endfor %}
     {% else %}
-      <h5>This car has it All!</h5>
+      <h5>This car already has every upgrade</h5>
     {% endif %}
   </div>
 </div>
-
-
+</body>
 
 {% endblock %}

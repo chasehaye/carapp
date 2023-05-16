@@ -1,21 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>Upgrade Details</h1>
+<body class='car-det'>
+<h1 class='title'>Upgrade Details</h1>
 
 <div class="row">
   <div class="col s6 col-offset-3">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">{{ upgrade.name }}</span>
+        <span class="card-adj">{{ upgrade.name }}</span>
         <p>Description: {{ upgrade.description }}</p>
         <p>Cost: {{ upgrade.cost }}</p>
       </div>
-      <div class="card-action">
-        <a href="{% url 'upgrade_update' upgrade.id %}">Edit</a>
-        <a href="{% url 'upgrade_delete' upgrade.id %}">Delete</a>
+      <div class="card-sub">
+        <a href="{% url 'upgrade_update' upgrade.id %}" class='btn-small'>Edit</a>
+        <a href="{% url 'upgrade_delete' upgrade.id %}" class='btn-small'>Delete</a>
       </div>
     </div>
   </div>
 </div>
+</body>
 {% endblock %}
